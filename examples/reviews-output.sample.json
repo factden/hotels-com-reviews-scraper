@@ -1,0 +1,114 @@
+[
+  {
+    "hotelId": 140596,
+    "hotelName": null,
+    "hotelUrl": "https://www.hotels.com/ho119566/",
+    "source": "hotels",
+    "reviewId": "6a5045084d2a09060c8aa865",
+    "submittedAt": "2026-07-10T14:16:51Z",
+    "overallRating": 10,
+    "ratingLabel": "Exceptional",
+    "reviewText": "Rooms were great. \nBuffet was awesome. \nNice casino. \nLove the Bellagio fountains.",
+    "subRatings": [
+      "Cleanliness: 10",
+      "Service: 10",
+      "Hotel condition: 10",
+      "Amenities: 10"
+    ],
+    "verified": true,
+    "reviewerName": "Billy",
+    "reviewerLocation": null,
+    "checkInDate": "2026-07-05T00:00:00Z",
+    "checkOutDate": "2026-07-09T00:00:00Z",
+    "travelCompanions": [
+      "Friends"
+    ],
+    "travelerCategories": [
+      "Friends"
+    ],
+    "language": "en",
+    "isMachineTranslated": false,
+    "helpfulVotes": 0,
+    "imagesCount": 0,
+    "reviewPhotos": [],
+    "ownerResponse": null,
+    "roomTypeId": "201646681",
+    "isAnonymous": false,
+    "brandType": "Expedia",
+    "markdownContent": "# Hotel review (Expedia)\n\n**Rating:** 10/10 ★★★★★\n**Travelling as:** Friends\n**Sub-ratings:** Cleanliness: 10; Service: 10; Hotel condition: 10; Amenities: 10\n\n## Review\nRooms were great. \nBuffet was awesome. \nNice casino. \nLove the Bellagio fountains."
+  },
+  {
+    "hotelId": 140596,
+    "hotelName": null,
+    "hotelUrl": "https://www.hotels.com/ho119566/",
+    "source": "hotels",
+    "reviewId": "6a4edde3b22bb93b0a7303ed",
+    "submittedAt": "2026-07-08T23:34:54Z",
+    "overallRating": 6,
+    "ratingLabel": "Good",
+    "reviewText": "When we walked into our room, we noticed there were used glasses of water and thr ice bucket had water in it, the garbage was full and the beds looked like someone took a nap on top of the sheets.. we complained and they moved us as well as gave us a credit and the second room was good except the shower had a used bar of soap on the soap shelf… so I was a little disappointed",
+    "subRatings": [
+      "Cleanliness: 6",
+      "Service: 10",
+      "Hotel condition: 10"
+    ],
+    "verified": true,
+    "reviewerName": "giuseppe",
+    "reviewerLocation": null,
+    "checkInDate": "2026-07-07T00:00:00Z",
+    "checkOutDate": "2026-07-08T00:00:00Z",
+    "travelCompanions": [],
+    "travelerCategories": [
+      "Everyone"
+    ],
+    "language": "en",
+    "isMachineTranslated": false,
+    "helpfulVotes": 0,
+    "imagesCount": 0,
+    "reviewPhotos": [],
+    "ownerResponse": null,
+    "roomTypeId": "314062413",
+    "isAnonymous": false,
+    "brandType": "Expedia",
+    "markdownContent": "# Hotel review (Expedia)\n\n**Rating:** 6/10 ★★★☆☆\n**Sub-ratings:** Cleanliness: 6; Service: 10; Hotel condition: 10\n\n## Review\nWhen we walked into our room, we noticed there were used glasses of water and thr ice bucket had water in it, the garbage was full and the beds looked like someone took a nap on top of the sheets.. we complained and they moved us as well as gave us a credit and the second room was good except the shower had a used bar of soap on the soap shelf… so I was a little disappointed"
+  },
+  {
+    "hotelId": 140596,
+    "hotelName": null,
+    "hotelUrl": "https://www.hotels.com/ho119566/",
+    "source": "hotels",
+    "reviewId": "6a4d5bf4c632405f66ec4f29",
+    "submittedAt": "2026-07-07T20:08:34Z",
+    "overallRating": 2,
+    "ratingLabel": "Poor",
+    "reviewText": "The water from faucets smelled horrible. Ice machine didn’t work. Hallway smelled like mildew. The rooms are wayyyyy too far from front desk. The food was mediocre. This place is over priced and in no way worth it. I would NEVER stay here again.",
+    "subRatings": [
+      "Cleanliness: 6",
+      "Service: 10",
+      "Hotel condition: 6",
+      "Amenities: 4"
+    ],
+    "verified": true,
+    "reviewerName": "Trudee V",
+    "reviewerLocation": "Upper Marlboro",
+    "checkInDate": "2026-07-01T00:00:00Z",
+    "checkOutDate": "2026-07-07T00:00:00Z",
+    "travelCompanions": [
+      "Partner"
+    ],
+    "travelerCategories": [
+      "Partner",
+      "Couples"
+    ],
+    "language": "en",
+    "isMachineTranslated": false,
+    "helpfulVotes": 0,
+    "imagesCount": 0,
+    "reviewPhotos": [],
+    "ownerResponse": null,
+    "roomTypeId": "201646681",
+    "isAnonymous": false,
+    "brandType": "Expedia",
+    "markdownContent": "# Hotel review (Expedia)\n\n**Rating:** 2/10 ★☆☆☆☆\n**Travelling as:** Partner\n**Sub-ratings:** Cleanliness: 6; Service: 10; Hotel condition: 6; Amenities: 4\n\n## Review\nThe water from faucets smelled horrible. Ice machine didn’t work. Hallway smelled like mildew. The rooms are wayyyyy too far from front desk. The food was mediocre. This place is over priced and in no way worth it. I would NEVER stay here again."
+  }
+]

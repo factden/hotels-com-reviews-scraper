@@ -1,0 +1,10 @@
+{
+  "hotelUrls": [
+    "https://www.hotels.com/ho119566/"
+  ],
+  "maxReviewsPerHotel": 100,
+  "sortBy": "newest",
+  "minRating": 1,
+  "maxRating": 5,
+  "proxyConfiguration": { "useApifyProxy": true }
+}

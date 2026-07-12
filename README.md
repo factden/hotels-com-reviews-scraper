@@ -61,6 +61,16 @@ Pay-per-event with **no start fee** - you pay only a per-review fee (see the Api
 This actor collects only **publicly available** review content. You are responsible for complying with
 Hotels.com's Terms of Service and applicable laws (including data-protection rules) when using the data.
 
+## Docs in this repo
+
+- **[HOWTO.md](./HOWTO.md)** — step-by-step guide (Console + Python / Node / curl).
+- **[FIELDS.md](./FIELDS.md)** — full output field dictionary for both the Reviews and Hotels datasets.
+- **[examples/](./examples)** — a ready-to-run [input](./examples/input.json), **3 real review rows**
+  ([reviews-output.sample.json](./examples/reviews-output.sample.json)) and **100 real reviews**
+  ([reviews-sample.csv](./examples/reviews-sample.csv)).
+- **[snippets/](./snippets)** — copy-paste run scripts: [Python](./snippets/run_actor.py) ·
+  [Node](./snippets/run_actor.js) · [curl](./snippets/run_actor.sh).
+
 ## Other scrapers by FactDen
 
 - [Expedia Reviews Scraper](https://apify.com/factden/expedia-hotel-reviews-scraper?fpr=factden)
