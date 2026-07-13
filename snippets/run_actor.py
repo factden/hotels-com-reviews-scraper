@@ -11,7 +11,7 @@ client = ApifyClient("<YOUR_APIFY_TOKEN>")
 
 run_input = {
     "hotelUrls": [
-        "https://www.hotels.com/ho119566/",
+        "https://www.hotels.com/ho119566/bellagio-las-vegas-united-states-of-america/",
     ],
     "maxReviewsPerHotel": 100,
     "sortBy": "newest",

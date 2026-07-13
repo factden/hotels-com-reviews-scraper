@@ -21,9 +21,10 @@ Create a free [Apify](https://console.apify.com/sign-up?fpr=factden) account and
 ## 3. Find a hotel URL
 
 Open a hotel's page on Hotels.com and copy the URL — it contains a `/ho<number>/` segment, e.g.
-`https://www.hotels.com/ho119566/`. You can paste the full URL, or just the **bare property ID** (`242128`).
-Hotel-page URLs from other Expedia Group brands (Expedia, Travelocity, Orbitz, Wotif, CheapTickets, ebookers) work
-too and are resolved automatically.
+`https://www.hotels.com/ho119566/bellagio-las-vegas-united-states-of-america/`. Paste the **full URL** (the name
+after the `/ho<id>/` populates `hotelName`), or just the **bare property ID** (`242128`). Hotel-page URLs from other
+Expedia Group brands (Expedia, Travelocity, Orbitz, Wotif, CheapTickets, ebookers) work too and are resolved
+automatically.
 
 ## 4. Run it from code
 
@@ -34,7 +35,7 @@ from apify_client import ApifyClient
 
 client = ApifyClient("<YOUR_APIFY_TOKEN>")
 run = client.actor("factden/hotels-com-reviews-scraper").call(run_input={
-    "hotelUrls": ["https://www.hotels.com/ho119566/"],
+    "hotelUrls": ["https://www.hotels.com/ho119566/bellagio-las-vegas-united-states-of-america/"],
     "maxReviewsPerHotel": 200,
 })
 items = list(client.dataset(run["defaultDatasetId"]).iterate_items())

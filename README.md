@@ -19,7 +19,7 @@ Export clean **JSON, CSV, Excel or via API**. No login, no Hotels.com API key.
 ## How to use
 
 1. Open a hotel's page on Hotels.com and copy the URL (it contains a `/ho<number>/` segment, e.g.
-   `https://www.hotels.com/ho119566/`).
+   `https://www.hotels.com/ho119566/bellagio-las-vegas-united-states-of-america/`).
 2. Paste one or more such URLs, bare Hotels.com property IDs, or any other Expedia Group brand URL into
    **Hotel URLs**.
 3. (Optional) Set **Max reviews per hotel**, a **date range**, a **rating range**, a **sort order**, or **Review
