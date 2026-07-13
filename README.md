@@ -1,81 +1,109 @@
-# Hotels.com Reviews Scraper - documentation
+# Hotels.com Reviews Scraper
 
-Public documentation and examples for the **Hotels.com Reviews Scraper** Apify actor. Scrape public Hotels.com
-hotel reviews at scale - guest **ratings**, full **review text**, category **sub-ratings**, **stay dates**,
-**traveler type**, **language**, and **hotel owner responses** - plus a per-review **LLM-ready markdown** block.
-Export clean **JSON, CSV, Excel or via API**. No login, no Hotels.com API key.
+> Scrape **Hotels.com hotel reviews** at scale — guest **ratings**, full **review text**, six category **sub‑ratings**, **stay dates**, **traveler type**, **language**, and **hotel owner responses** — plus a per‑review **LLM‑ready markdown** block. **No login, no Hotels.com API key.** Runs on [Apify](https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden).
 
-> This repository holds **documentation and examples only** - no scraper source code. This is an initial version;
-> content will be expanded and optimized over time.
+[![Run on Apify](https://img.shields.io/badge/Run%20on-Apify-00b04f?logo=apify&logoColor=white)](https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
 
-## Why use it?
+This repo is the **developer entry point** for the Hotels.com Reviews Scraper actor: the output shape, copy‑paste API snippets, a full [field dictionary](./FIELDS.md), and a short [how‑to](./HOWTO.md). The actor itself runs on Apify — no login, no Hotels.com API key, no proxy or anti‑bot setup required.
 
-- **Reputation & sentiment analysis** - track guest sentiment for your own or competitor hotels over time.
-- **Competitor benchmarking** - pull rating distributions, category sub-scores and review volume per property.
-- **Market research** - analyze traveler types, languages and what guests praise or complain about.
-- **AI / RAG pipelines** - every review ships with a self-contained `markdownContent` block ready for
-  vector-DB ingestion.
+**▶ [Run it on Apify →](https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden)**
 
-## How to use
+<p align="center">
+  <a href="https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden" rel="sponsored noopener">
+    <img src="https://raw.githubusercontent.com/factden/apify-actor-assets/main/hotels-com-reviews-scraper/02-reviews-overview.png" alt="Hotels.com Reviews Scraper — one structured row per guest review" width="900">
+  </a>
+</p>
 
-1. Open a hotel's page on Hotels.com and copy the URL (it contains a `/ho<number>/` segment, e.g.
-   `https://www.hotels.com/ho119566/bellagio-las-vegas-united-states-of-america/`).
-2. Paste one or more such URLs, bare Hotels.com property IDs, or any other Expedia Group brand URL into
-   **Hotel URLs**.
-3. (Optional) Set **Max reviews per hotel**, a **date range**, a **rating range**, a **sort order**, or **Review
-   sources**.
-4. Run it and download the results as JSON, CSV, Excel, or pull them from the API.
+---
 
-## Input
+## What it extracts
 
-| Field | Description |
+Paste a Hotels.com `/ho<id>/` URL, a bare Hotels.com property ID, or any Expedia Group hotel URL, and get two structured datasets:
+
+- **Reviews** — one row per guest review: the overall **/10 rating**, full **review text**, six category **sub‑ratings** (cleanliness, service, room comfort, hotel condition, amenities, eco‑friendliness), **stay dates**, **traveler type**, **language**, **review photos**, any **hotel owner response**, and an LLM‑ready `markdownContent` block.
+- **Hotels** — one summary row per hotel: average rating, recency‑weighted rating, total review count, the full **1–5 rating distribution**, and per‑language / per‑traveler‑type counts.
+
+### Two things you won't find in other Hotels.com scrapers
+
+🏨 **Native Hotels.com input, plus the whole Expedia Group** — paste Hotels.com `/ho<id>/` links or bare IDs (resolved automatically), and Expedia, Travelocity, Orbitz, Wotif, CheapTickets & ebookers URLs work too, with the **same output schema**.
+
+🤖 **LLM‑ready `markdownContent` per review** — a self‑contained markdown block, ready for direct vector‑DB / RAG ingestion with zero formatting work.
+
+|  |  |
 |---|---|
-| **Hotel URLs or property IDs** (`hotelUrls`) | Hotels.com `/ho<id>/` URLs, **bare Hotels.com property IDs** (`242128`), or hotel-page URLs from any of the 6 other Expedia Group brands (each with a `.h<id>.` segment). One per line. |
-| **Max reviews per hotel** (`maxReviewsPerHotel`) | Cap per hotel (default 200). |
-| **Sort reviews by** (`sortBy`) | `newest` (default), `oldest`, `highestRating`, `lowestRating`. |
-| **From / To date** (`fromDate` / `toDate`) | Keep only reviews in a `YYYY-MM-DD` range. |
-| **Min / Max rating** (`minRating` / `maxRating`) | Keep only reviews within a 1-5 rating range. |
-| **Review sources** (`reviewSources`) | Which Expedia Group brands' reviews to return. Empty = all (cross-brand union). |
-| **Proxy** (`proxyConfiguration`) | Datacenter is enough; use residential for very large runs. |
+| ![Hotel aggregate — one row per hotel](https://raw.githubusercontent.com/factden/apify-actor-assets/main/hotels-com-reviews-scraper/04-hotel-overview.png) | ![LLM-ready markdown field](https://raw.githubusercontent.com/factden/apify-actor-assets/main/hotels-com-reviews-scraper/03-reviews-ai-ingest.png) |
+| Hotel aggregate — ratings, distribution, counts | LLM‑ready `markdownContent` field |
+
+---
+
+## Quick start (API)
+
+```python
+from apify_client import ApifyClient
+
+client = ApifyClient("<YOUR_APIFY_TOKEN>")
+run = client.actor("factden/hotels-com-reviews-scraper").call(run_input={
+    "hotelUrls": ["https://www.hotels.com/ho119566/", "242128"],
+    "maxReviewsPerHotel": 100,
+    "sortBy": "newest",
+})
+for row in client.dataset(run["defaultDatasetId"]).iterate_items():
+    print(row["hotelName"], row["overallRating"])
+```
+
+More: **[Python](./snippets/run_actor.py)** · **[Node](./snippets/run_actor.js)** · **[curl](./snippets/run_actor.sh)**
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/factden/apify-actor-assets/main/hotels-com-reviews-scraper/01-input-form.png" alt="Hotels.com Reviews Scraper input form on Apify Console — hotel URLs plus filters and limits" width="720">
+</p>
+
+---
 
 ## Output
 
-Two datasets: **Reviews** (the default dataset) - one row per guest review, with the hotel context merged onto
-each row - and **Hotels** - one row per hotel with the aggregates. The reviews dataset also exposes an **AI
-ingest** view (the LLM-ready `markdownContent` column). Ratings are presented on the **/10 scale** to match
-Hotels.com's public display.
+Real sample output lives in **[`examples/`](./examples)**:
 
-## Supported sites
+- [`examples/reviews-sample.csv`](./examples/reviews-sample.csv) — **100 real review rows** — browse it right in GitHub's table view
+- [`examples/reviews-output.sample.json`](./examples/reviews-output.sample.json) — 3 review rows showing the full field shape (incl. `markdownContent`)
+- [`examples/input.json`](./examples/input.json) — a ready‑to‑run input
 
-Hotels.com plus the other Expedia Group brands - paste an **Expedia, Travelocity, Orbitz, Wotif, CheapTickets**
-or **ebookers** hotel URL directly (Hotels.com `/ho<id>/` URLs and bare IDs are resolved automatically). Use
-**Review sources** to pick which brands' reviews to return, or leave it empty for the cross-brand union.
+Every field is documented in **[`FIELDS.md`](./FIELDS.md)**. Ratings are shown on the **/10 scale** to match Hotels.com's public display. From Apify you can download results as **JSON, CSV, Excel, or HTML**.
 
-## Pricing
+---
 
-Pay-per-event with **no start fee** - you pay only a per-review fee (see the Apify Console pricing panel). Lower
-**Max reviews per hotel** to control cost. Your first runs are covered by Apify's free tier.
+## Use cases
 
-## Legal
+- **Reputation & sentiment analysis** — track guest sentiment for your own or competitor hotels over time.
+- **Competitor benchmarking** — rating distributions, category sub‑scores and review volume per property.
+- **Market research** — traveler types, languages, and what guests praise or complain about across a market.
+- **AI / RAG pipelines** — drop each review's `markdownContent` straight into a vector DB.
 
-This actor collects only **publicly available** review content. You are responsible for complying with
-Hotels.com's Terms of Service and applicable laws (including data-protection rules) when using the data.
+---
 
-## Docs in this repo
+## How much does it cost?
 
-- **[HOWTO.md](./HOWTO.md)** — step-by-step guide (Console + Python / Node / curl).
-- **[FIELDS.md](./FIELDS.md)** — full output field dictionary for both the Reviews and Hotels datasets.
-- **[examples/](./examples)** — a ready-to-run [input](./examples/input.json), **3 real review rows**
-  ([reviews-output.sample.json](./examples/reviews-output.sample.json)) and **100 real reviews**
-  ([reviews-sample.csv](./examples/reviews-sample.csv)).
-- **[snippets/](./snippets)** — copy-paste run scripts: [Python](./snippets/run_actor.py) ·
-  [Node](./snippets/run_actor.js) · [curl](./snippets/run_actor.sh).
+Pay‑per‑event on Apify: a **per‑review fee with no per‑run start fee** — lower **Max reviews per hotel** to cap cost. New Apify accounts get **$5 in free credit**. See the [actor page](https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden) for current pricing.
+
+---
+
+## FAQ
+
+**Is scraping Hotels.com reviews legal?** The actor collects only **publicly available** review data. As with any scraping, review Hotels.com's Terms of Service and your local regulations, and use the data responsibly.
+
+**Do I need a Hotels.com account or API key?** No. Everything runs inside the actor on Apify's infrastructure — no login, no key, no proxy setup.
+
+**Can I paste other Expedia Group brands?** Yes. Hotels.com `/ho<id>/` links and bare IDs resolve automatically, and Expedia, Travelocity, Orbitz, Wotif, CheapTickets and ebookers URLs return the same schema. Use **Review sources** to keep only certain brands' reviews.
+
+**Found a bug or want a field added?** Open an issue here, or use the **Issues** tab on the [Apify actor page](https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden).
+
+---
 
 ## Other scrapers by FactDen
 
 - [Expedia Reviews Scraper](https://apify.com/factden/expedia-hotel-reviews-scraper?fpr=factden)
   ([docs](https://github.com/factden/expedia-hotel-reviews-scraper))
-- [Trip.com & Ctrip Hotel Reviews Scraper](https://apify.com/factden/ctrip-trip-reviews-scraper?fpr=factden)
+- [Trip.com & Ctrip Reviews Scraper](https://apify.com/factden/ctrip-trip-reviews-scraper?fpr=factden)
   ([docs](https://github.com/factden/ctrip-trip-reviews-scraper))
 - [G2 Reviews Scraper](https://apify.com/factden/g2-reviews-scraper?fpr=factden)
   ([docs](https://github.com/factden/g2-reviews-scraper))
@@ -83,6 +111,11 @@ Hotels.com's Terms of Service and applicable laws (including data-protection rul
   ([docs](https://github.com/factden/indeed-jobs-scraper))
 - [All FactDen actors →](https://apify.com/factden?fpr=factden)
 
-## Links
+**Docs & guides:**
 
-- Apify Store listing: https://apify.com/factden/hotels-com-reviews-scraper?fpr=factden
+- [How to scrape Hotels.com reviews](https://factden.com/blog/how-to-scrape-hotels-com-reviews)
+- [factden.com](https://factden.com)
+
+---
+
+_The sample data in this repo is real public Hotels.com review data, collected with the actor and provided for documentation/evaluation. Run the actor on Apify to pull data for any hotel, at any scale._
