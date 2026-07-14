@@ -119,3 +119,5 @@ Pay‑per‑event on Apify: a **per‑review fee with no per‑run start fee** �
 ---
 
 _The sample data in this repo is real public Hotels.com review data, collected with the actor and provided for documentation/evaluation. Run the actor on Apify to pull data for any hotel, at any scale._
+
+_Found this useful? A star on this repo helps other people find it._
