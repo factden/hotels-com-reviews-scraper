@@ -101,6 +101,8 @@ Pay‑per‑event on Apify: a **per‑review fee with no per‑run start fee** �
 
 ## Other scrapers by FactDen
 
+- [Google Hotels Scraper](https://apify.com/factden/google-hotels-scraper?fpr=factden)
+  ([docs](https://github.com/factden/google-hotels-scraper))
 - [Expedia Reviews Scraper](https://apify.com/factden/expedia-hotel-reviews-scraper?fpr=factden)
   ([docs](https://github.com/factden/expedia-hotel-reviews-scraper))
 - [Trip.com & Ctrip Reviews Scraper](https://apify.com/factden/ctrip-trip-reviews-scraper?fpr=factden)
