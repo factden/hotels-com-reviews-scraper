@@ -113,6 +113,8 @@ Pay‑per‑event on Apify: a **per‑review fee with no per‑run start fee** �
   ([docs](https://github.com/factden/g2-reviews-scraper))
 - [Indeed Jobs Scraper](https://apify.com/factden/indeed-jobs-scraper?fpr=factden)
   ([docs](https://github.com/factden/indeed-jobs-scraper))
+- [TripAdvisor Hotel Reviews API](https://apify.com/factden/tripadvisor-hotel-reviews-api?fpr=factden)
+  ([docs](https://github.com/factden/tripadvisor-hotel-reviews-api))
 - [All FactDen actors →](https://apify.com/factden?fpr=factden)
 
 **Docs & guides:**
