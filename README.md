@@ -116,6 +116,8 @@ Pay‑per‑event on Apify: a **per‑review fee with no per‑run start fee** �
 - [TripAdvisor Hotel Reviews API](https://apify.com/factden/tripadvisor-hotel-reviews-api?fpr=factden)
   ([docs](https://github.com/factden/tripadvisor-hotel-reviews-api))
 - [Airbnb Data Scraper](https://apify.com/factden/airbnb-data-scraper?fpr=factden) ([docs](https://github.com/factden/airbnb-data-scraper)) - Airbnb listings, prices, availability, occupancy, ADR/RevPAR & reviews; a pay-per-use AirDNA alternative.
+- [Agoda Hotel Reviews Scraper](https://apify.com/factden/agoda-hotel-reviews-scraper?fpr=factden)
+  ([docs](https://github.com/factden/agoda-hotel-reviews-scraper))
 - [All FactDen actors →](https://apify.com/factden?fpr=factden)
 
 **Docs & guides:**
